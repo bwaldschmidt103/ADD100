@@ -1,0 +1,20 @@
+# Ask the user to enter a word
+user_word = input("Enter a word: ")
+
+# Convert the word entered by the user to upper-case
+user_word = user_word.upper()
+
+# Create a new variable to store the word without vowels
+word_without_vowels = ""
+
+# Use a for loop to iterate over each letter in the user_word
+for letter in user_word:
+    # Use conditional execution and the continue statement to "eat" the vowels
+    if letter in "AEIOU":
+        continue  # Skip the vowel and move to the next letter
+    else:
+        # Concatenate the non-vowel letters to the word_without_vowels variable
+        word_without_vowels += letter
+
+# Print the word without vowels
+print(word_without_vowels)

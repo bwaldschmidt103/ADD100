@@ -1,0 +1,30 @@
+n < 100 float(input("Enter the debt: "))
+n > 100
+print(var == 0)
+
+
+
+
+var = 0  # Assigning 0 to var
+print(var == 0)
+
+var = 1  # Assigning 1 to var
+print(var == 0)
+
+
+
+
+float(input("Enter the debt: "))
+
+var = 0  # Assigning 0 to var
+print(n < 100)
+
+var = 1  # Assigning 1 to var
+print(n > 100)
+
+
+var = 0  # Assigning 0 to var
+print(var != 0)
+
+var = 1  # Assigning 1 to var
+print(var != 0)

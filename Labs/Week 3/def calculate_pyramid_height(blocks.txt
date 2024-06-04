@@ -1,0 +1,26 @@
+def calculate_pyramid_height(blocks_available):
+    # Initialize the current height of the pyramid
+    height = 0
+    # Initialize the blocks needed for the next layer
+    blocks_needed = 1
+    
+    # While there are enough blocks for the next layer
+    while blocks_available >= blocks_needed:
+        # Increase the height of the pyramid
+        height += 1
+        # Subtract the blocks needed for the current layer from the available blocks
+        blocks_available -= blocks_needed
+        # Calculate the blocks needed for the next layer
+        blocks_needed += 1
+    
+    # Return the final height of the pyramid
+    return height
+
+# Read the number of blocks from the user
+blocks_available = int(input("Enter the number of blocks available: "))
+
+# Calculate the height of the pyramid
+pyramid_height = calculate_pyramid_height(blocks_available)
+
+# Print the result
+print(f"The height of the pyramid that can be built is {pyramid_height} layers.")

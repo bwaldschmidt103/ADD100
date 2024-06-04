@@ -1,0 +1,11 @@
+year = int(input("Enter a year: "))
+
+if year < 1582:
+    print("The entered year is not within the Gregorian calendar period.")
+else:
+    if year % 4 == 0:
+        year_type = "Leap year"
+    else:
+        year_type = "Common year"
+    print("The entered year is a", year_type)
+    

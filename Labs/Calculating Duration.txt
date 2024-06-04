@@ -1,0 +1,23 @@
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+
+# Calculate the end time
+end_mins = mins + dura
+end_hour = hour + end_mins // 60
+end_mins = end_mins % 60
+
+# Adjust for 24-hour format
+end_hour = end_hour % 24
+
+print(f"If the event starts at {hour}:{mins:02d} and lasts {dura} minutes, it will end at {end_hour}:{end_mins:02d}.")
+
+-------------------------------------------------------------------------
+
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+end_t = (hour + mins) + dura))
+
+print("The end time is:", ent_t)
+# Write your code here.

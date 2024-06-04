@@ -1,0 +1,10 @@
+# Prompt the user to enter a word and assign it to the user_word variable.
+user_word = input("Enter a word: ").upper()
+
+# Iterate over each letter in the user_word
+for letter in user_word:
+    # Check if the letter is a vowel
+    if letter in "AEIOU":
+        continue  # Skip the vowel and move to the next letter
+    # Print the non-vowel letters
+    print(letter)

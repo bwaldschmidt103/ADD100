@@ -1,0 +1,4 @@
+n = int(input("Enter a number: "))  # You need to assign the input value to the variable 'n'
+
+print(f"{n} is less than 100: {n < 100}")
+print(f"{n} is greater than 100: {n > 100}")

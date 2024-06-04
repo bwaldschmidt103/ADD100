@@ -1,0 +1,21 @@
+# Ask the user for input
+c0 = int(input("Enter a non-negative and non-zero integer: "))
+
+# Check if the input is valid
+if c0 <= 0:
+    print("The number must be a non-negative and non-zero integer.")
+else:
+    steps = 0
+    # Execute the steps as long as c0 is not 1
+    while c0 != 1:
+        # If c0 is even
+        if c0 % 2 == 0:
+            c0 = c0 // 2
+        # If c0 is odd
+        else:
+            c0 = 3 * c0 + 1
+        print(c0)  # Output the intermediate value of c0
+        steps += 1  # Count the steps
+
+    # Output the total number of steps
+    print("Steps needed to reach 1:", steps)
