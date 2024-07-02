@@ -1,0 +1,19 @@
+# Creating the list of time for prompt
+
+days=[]
+time_slots = ["Morning", "Midday", "Afternoon", "Evening"] # Define Time Slots
+for i in range(3):
+    heart_rates = [] # Storing Heart Rate Data
+    for time in time_slots:
+        rate = int(input(f"Enter your heart rate (in BPM) in the {time}: ")) # User Input for Heart Rate
+        heart_rates.append((time, rate)) # Calculate Average Heart Rate:
+
+    print(heart_rates)
+    # how to access a single value
+    days.append(heart_rates)
+
+# print (days)
+for i in range(len(days)):
+    print(f"Day {i+1}: ")
+    for c in range(4): # 4 test times
+        print(days [i] [c])
