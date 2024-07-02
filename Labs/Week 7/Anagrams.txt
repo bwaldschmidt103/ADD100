@@ -1,0 +1,58 @@
+Objectives
+improving the student's skills in operating with strings;
+converting strings into lists, and vice versa.
+Scenario
+An anagram is a new word formed by rearranging the letters of a word, using all the original letters exactly once. For example, the phrases "rail safety" and "fairy tales" are anagrams, while "I am" and "You are" are not.
+
+Your task is to write a program which:
+
+asks the user for two separate texts;
+checks whether, the entered texts are anagrams and prints the result.
+Note:
+
+assume that two empty strings are not anagrams;
+treat upper- and lower-case letters as equal;
+spaces are not taken into account during the check - treat them as non-existent
+Test your code using the data we've provided.
+
+--------------------------------------------------------------
+
+Test data
+Sample input:
+
+Listen
+Silent
+
+Sample output:
+
+Anagrams
+
+
+Sample input:
+
+modern
+norman
+
+Sample output:
+
+Not anagrams
+
+------------------------------------------------------------------
+
+def is_anagram(text1, text2):
+    # Remove spaces and convert to lowercase
+    cleaned_text1 = text1.replace(" ", "").lower()
+    cleaned_text2 = text2.replace(" ", "").lower()
+    
+    # Check if the sorted characters are equal
+    return sorted(cleaned_text1) == sorted(cleaned_text2)
+
+# Get input from user
+text1 = input("Enter the first text: ")
+text2 = input("Enter the second text: ")
+
+# Check if they are anagrams
+if is_anagram(text1, text2):
+    print("The entered texts are anagrams.")
+else:
+    print("The entered texts are not anagrams.")

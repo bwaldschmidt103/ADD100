@@ -1,0 +1,32 @@
+def mysplit(strng):
+    # Check if the string is empty
+    if not strng:
+        return []
+
+    # Initialize an empty list to store the words
+    words = []
+    # Initialize an empty string to store the current word
+    word = ''
+    # Iterate over each character in the string
+    for char in strng:
+        # If the character is not a whitespace, add it to the current word
+        if not char.isspace():
+            word += char
+        # If the character is a whitespace and the current word is not empty,
+        # add the current word to the list and reset the current word
+        elif word:
+            words.append(word)
+            word = ''
+    # If there is a word left at the end, add it to the list
+    if word:
+        words.append(word)
+
+    # Return the list of words
+    return words
+
+# Test cases
+print(mysplit("To be or not to be, that is the question"))
+print(mysplit("To be or not to be,that is the question"))
+print(mysplit("   "))
+print(mysplit(" abc "))
+print(mysplit(""))

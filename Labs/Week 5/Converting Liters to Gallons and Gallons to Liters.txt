@@ -1,0 +1,21 @@
+def liters_100km_to_miles_gallon(liters):
+    # 1 American mile = 1609.344 metres
+    # 1 American gallon = 3.785411784 litres
+    # 1 km = 1000 metres
+    # 1 l/100km = 100/1 km/litre = 100000/1609.344 miles/gallon
+    # Conversion factor: 1 l/100km = 235.214583 mpg
+    miles_per_gallon = 235.214583 / liters
+    return miles_per_gallon
+
+def miles_gallon_to_liters_100km(miles):
+    # Conversion factor: 1 mpg = 1/235.214583 l/100km
+    liters_per_100km = 235.214583 / miles
+    return liters_per_100km
+
+# Test cases
+print(liters_100km_to_miles_gallon(3.9))  # Expected output: 60.31143162393162
+print(liters_100km_to_miles_gallon(7.5))  # Expected output: 31.361944444444443
+print(liters_100km_to_miles_gallon(10.))  # Expected output: 23.5214583
+print(miles_gallon_to_liters_100km(60.3)) # Expected output: 3.9007393587617467
+print(miles_gallon_to_liters_100km(31.4)) # Expected output: 7.490910297239916
+print(miles_gallon_to_liters_100km(23.5)) # Expected output: 10.0
