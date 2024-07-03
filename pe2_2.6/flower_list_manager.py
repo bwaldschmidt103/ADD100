@@ -27,6 +27,9 @@ def main():
         for i, flower in enumerate(flowers, start=1):
             print(f"{i}. {flower}")
 
+        # Print the entire list of flowers
+        print("List of flowers:", flowers)
+
         # Ask the user to search for a specific flower
         search_flower = input("\nEnter a flower name to search: ")
         if search_flower in flowers:
@@ -47,7 +50,7 @@ def main():
             print("Index out of range. Please enter a valid number.")
 
     except Exception as e:
-        print(f"An error occrred {e}")
+        print(f"An error occurred {e}")
 
 
 if __name__ == "__main__":
