@@ -33,11 +33,13 @@ def main():
             print("That password is not the right length")
 
         is_upper = False # change to true if found
+        is_lower = False # change to true if found
         for char in password: # for loop stepping through characters in password. 
             if char.isupper(): # Look for an upper case.
                 is_upper = True
-                break
-
+            elif char.islower(): # Look for a lowercase letter.
+                is_lower = True
+ 
         has_symbol = False
         symbol = ['!', '@', '#', '$', '%', '&', '*']
         for char in password:
@@ -46,8 +48,8 @@ def main():
                 break
                
 
-        if not (is_upper and has_symbol):
-            print("you need to include an uppercase letter and a symbol")
+        if not (is_upper and is_lower and has_symbol):
+            print("you need to include an uppercase letter, a lowercase letter, and a symbol")
             valid = False
             
     print("Password is valid!")
