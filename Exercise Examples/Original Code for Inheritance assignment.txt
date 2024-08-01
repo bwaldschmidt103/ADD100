@@ -1,0 +1,90 @@
+"""
+Assignment Part 1: Defining Classes
+File 1: Write an Employee class with the following attributes:
+
+Employee name
+Employee number
+Create a subclass named ProductionWorker that inherits from Employee. This subclass should include additional attributes:
+
+Shift number (integer: 1 for day, 2 for night)
+Hourly pay rate
+Implement accessor and mutator methods (getters and setters) for each class.
+
+Assignment Part 2: Implementing and Testing
+ 
+
+Part 2: Write a script to:
+
+Create an instance of ProductionWorker.
+Prompt the user for each attribute's data.
+Store and then display the data using the object's methods.
+"""
+
+# Defining Classes
+class Employee:
+    def __init__(self, employee_name, employee_number):
+        self.employee_name = employee_name
+        self.employee_number = employee_number
+
+class Production_Worker(Employee):
+    def __init__(self, employee_name, employee_number, shift_number, hourly_pay_rate):
+        super().__init__(employee_name, employee_number)
+        self.shift_number = shift_number
+        self.hourly_pay_rate = hourly_pay_rate
+        
+
+# Getter and Setter for each class
+    def get_employee_name(self):
+        return self.__employee_name
+    
+    def set_kind(self, employee_name):
+        self.__employee_name = employee_name
+    
+    def get_employee_number(self):
+        return self.__employee_number
+    
+    def set_employee_number(self, employee_number):
+        self.__employee_number = employee_number
+
+    def get_shift_number(self):
+        return self.__shift_number
+    
+    def set_shift_number(self, shift_number):
+        self.__shift_number = shift_number
+
+    def get_hourly_pay_rate(self):
+        return self.__hourly_pay_rate
+    
+    def set_hourly_pay_rate(self, hourly_pay_rate):
+        self.__hourly_pay_rate = hourly_pay_rate
+
+    # Method to print pet details
+    def print_pet_details(self):
+        print(f"Enter the following details of the Employee")
+        print("\n\n\n")
+        print(f"Enter Employee Name: {self.__employee_name}")
+        print(f"Enter Employee Number: {self.__employee_number}")  
+        print(f"Enter Pay Rate: {self.__hourly_pay_rate}")
+        print(f"Enter Shift Number : {self.__shift_number}")  
+
+# # Main function to demonstrate instances of Production workers
+def main():
+
+    print("\n\n\n")
+    marco = Production_Worker ("Marco", "234576", "22.50", "2")
+    print(marco)
+
+    print("\n\n\n")
+    suzanne = Production_Worker ("Suzanne", "425245", "18.00", "1")
+    print(suzanne)
+
+    print("\n\n\n")
+    justine = Production_Worker ("Justine", "987234", "26.00", "1")
+    print(justine)
+    
+    print("\n\n\n")
+    bobby = Production_Worker ("Bobby", "908241", "24.00", "2")
+    print(bobby)
+
+main()
+
