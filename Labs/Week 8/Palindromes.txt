@@ -1,0 +1,57 @@
+Objectives
+improving the student's skills in operating with strings;
+encouraging the student to look for non-obvious solutions.
+Scenario
+Do you know what a palindrome is?
+
+It's a word which look the same when read forward and backward. For example, "kayak" is a palindrome, while "loyal" is not.
+
+Your task is to write a program which:
+
+asks the user for some text;
+checks whether the entered text is a palindrome, and prints result.
+Note:
+
+assume that an empty string isn't a palindrome;
+treat upper- and lower-case letters as equal;
+spaces are not taken into account during the check - treat them as non-existent;
+there are more than a few correct solutions - try to find more than one.
+Test your code using the data we've provided.
+
+--------------------------------------------------------------------------
+
+Test data
+Sample input:
+
+Ten animals I slam in a net
+
+Sample output:
+
+It's a palindrome
+
+
+Sample input:
+
+Eleven animals I slam in a net
+
+Sample output:
+
+It's not a palindrome
+
+----------------------------------------------------------
+
+def is_palindrome(text):
+    # Remove spaces and convert to lowercase
+    cleaned_text = text.replace(" ", "").lower()
+    
+    # Check if the cleaned text is equal to its reverse
+    return cleaned_text == cleaned_text[::-1]
+
+# Get input from user
+text = input("Enter some text: ")
+
+# Check if it's a palindrome
+if is_palindrome(text):
+    print("The entered text is a palindrome.")
+else:
+    print("The entered text is not a palindrome.")

@@ -1,0 +1,71 @@
+Estimated time
+15-45 min
+
+Level of difficulty
+Easy
+
+Objectives
+improving the student's skills in date and time formatting;
+improving the student's skills in using the strftime method.
+Scenario
+During this course, you learned about the strftime method, which requires knowledge of directives to create a format. It's time to put the known directives into practice.
+
+By the way, you'll have the opportunity to practice working with documentation, because you'll have to find directives that you don't yet know.
+
+Here's your task:
+Write a program that creates a datetime object for November 4, 2020 , 14:53:00. The object created should call the strftime method with the appropriate format to display the following result:
+
+2020/11/04 14:53:00
+20/November/04 14:53:00 PM
+Wed, 2020 Nov 04
+Wednesday, 2020 November 04
+Weekday: 3
+Day of the year: 309
+Week number of the year: 44
+expected output
+
+Note: Each result line should be created by calling the strftime method with at least one directive in the format argument.
+
+-------------------------------------------------------------
+
+import datetime
+
+# Create a datetime object for November 4, 2020, 14:53:00
+dt = datetime.datetime(2020, 11, 4, 14, 53, 0)
+
+# Print the formatted results
+print(dt.strftime("%Y/%m/%d %H:%M:%S"))
+print(dt.strftime("%y/%B/%d %H:%M:%S %p"))
+print(dt.strftime("%a, %Y %b %d"))
+print(dt.strftime("%A, %Y %B %d"))
+print(f"Weekday: {dt.strftime('%w')}")
+print(f"Day of the year: {dt.strftime('%j')}")
+print(f"Week number of the year: {dt.strftime('%U')}")
+
+
+-----------------------------------------------------------------------
+
+Importing the datetime module:
+We start by importing the datetime module, which provides classes and functions for working with dates and times in Python.
+Creating a datetime object:
+Next, we create a datetime object named dt with the date and time set to November 4, 2020, 14:53:00.
+We use the datetime.datetime(year, month, day, hour, minute, second) constructor to create this object.
+Formatting and printing the results:
+We use the strftime method (short for “string format time”) to format the datetime object according to specific directives.
+Each directive represents a component of the date and time (e.g., year, month, day, hour, etc.).
+Here are the format strings and their meanings:
+%Y: Year with century as a decimal number (e.g., 2020)
+%m: Month as a zero-padded decimal number (e.g., 11 for November)
+%d: Day of the month as a zero-padded decimal number (e.g., 04)
+%H: Hour (24-hour clock) as a zero-padded decimal number (e.g., 14)
+%M: Minute as a zero-padded decimal number (e.g., 53)
+%S: Second as a zero-padded decimal number (e.g., 00)
+%y: Year without century as a zero-padded decimal number (e.g., 20)
+%B: Full month name (e.g., November)
+%a: Abbreviated weekday name (e.g., Wed)
+%A: Full weekday name (e.g., Wednesday)
+%w: Weekday as a decimal number (0 for Sunday, 6 for Saturday)
+%j: Day of the year as a zero-padded decimal number (e.g., 309)
+%U: Week number of the year (Sunday as the first day of the week, e.g., 44)
+%p: AM or PM (e.g., AM or PM)
+We print each formatted result using the appropriate format string.

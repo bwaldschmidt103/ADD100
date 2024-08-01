@@ -1,0 +1,70 @@
+Level of difficulty
+Medium
+
+Objectives
+improving the student's skills in operating with strings;
+using the find() method for searching strings.
+Scenario
+Let's play a game. We will give you two strings: one being a word (e.g., "dog") and the second being a combination of any characters.
+
+Your task is to write a program which answers the following question: are the characters comprising the first string hidden inside the second string?
+
+For example:
+
+if the second string is given as "vcxzxduybfdsobywuefgas", the answer is yes;
+if the second string is "vcxzxdcybfdstbywuefsas", the answer is no (as there are neither the letters "d", "o", or "g", in this order)
+Hints:
+
+you should use the two-argument variants of the pos() functions inside your code;
+don't worry about case sensitivity.
+
+-----------------------------------------------------------------------------
+
+Test data
+Sample input:
+
+donor
+Nabucodonosor
+Sample output:
+
+Yes
+
+
+Sample input:
+
+donut
+Nabucodonosor
+Sample output:
+
+No
+
+------------------------------------------------------------------------
+
+def are_characters_hidden(word, text):
+    # Initialize the starting position
+    start_pos = 0
+    
+    # Iterate over each character in the word
+    for char in word:
+        # Search for the character in the text starting from the current position
+        pos = text.find(char, start_pos)
+        if pos == -1:
+            # Character not found, return False
+            return False
+        else:
+            # Update the starting position for the next search
+            start_pos = pos + 1
+    
+    # All characters found, return True
+    return True
+
+# Get input from user
+word = input("Enter a word: ")
+text = input("Enter a combination of characters: ")
+
+# Check if the characters are hidden
+if are_characters_hidden(word, text):
+    print(f"The characters of '{word}' are hidden inside '{text}'.")
+else:
+    print(f"The characters of '{word}' are not hidden inside '{text}'.")
+

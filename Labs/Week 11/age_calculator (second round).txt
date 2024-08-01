@@ -1,0 +1,44 @@
+import datetime
+
+def get_user_birthday():
+    
+    # Get the user's birthday as an input and return a datetime object.
+    while True:
+        try:
+            birthday_str = input("Enter your birthday (YYYY-MM-DD): ")
+            birthday = datetime.datetime.strptime(birthday_str, "%Y-%m-%d")
+            return birthday
+        except ValueError:
+            print("Invalid date format. Please enter your birthday in YYYY-MM-DD format.")
+
+def calculate_age(birthday):
+    
+    # Calculate age using
+    today = datetime.datetime.now()
+    age = today - birthday
+    
+    # Calculate years, months, and days
+    years = age.days // 365
+    remaining_days = age.days % 365
+    months = remaining_days // 30
+    days = remaining_days % 30
+
+    return years, months, days, age
+
+def display_age(years, months, days, birthday, age):
+
+    # Display the age and additional information.
+    print(f"What year were you born? {datetime.datetime.now().year - years}")
+    print(f"What Month were you born (as a number)? {birthday.month}")
+    print(f"What day of the month were you born? {birthday.day}")
+    print(f"Your birthday is: {birthday.strftime('%B %d, %Y')}")
+    print(f"Difference is {age.days} days")
+    print(f"You are {years} years old")
+
+def main():
+    birthday = get_user_birthday()
+    years, months, days, age = calculate_age(birthday)
+    display_age (years, months, days, birthday, age)
+
+if __name__ == "__main__":
+    main()

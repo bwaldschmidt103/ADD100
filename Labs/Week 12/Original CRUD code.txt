@@ -1,0 +1,139 @@
+# Creating a function to display the main menu
+
+def main_menu():
+    print("Menu:")
+    while True:
+        try:
+            print("\n\nWelcome! You can create new email entries, change email addresses, delete entries, or display entries.")
+            print("1. Create a new entry")
+            print("2. Display an entry by last name")
+            print("3. Update an existing entry")
+            print("4. Remove an entry")
+            print("5. Quit")
+            choice = int(input("Please enter the number of your selection: "))
+            if 1 <= choice <= 5:
+                return choice
+            else: 
+                print("That is not the valid number. Try again.")
+        except ValueError:
+            print("That is not a valid number. Try again.")
+
+main_menu()
+
+# Placeholder functions for CRUD operations
+
+def check():
+    print("Checking the system...")
+
+def create():
+    print("Creating a new entry...")
+
+def read():
+    print("Reading an entry...")
+
+def update():
+    print("Updating an entry...")
+
+def delete():
+    print("Deleting an entry...")
+
+# Check function to read data from existing file or creating a new file
+
+def check():
+    try:
+        file = open("customer_list.txt", 'r')
+        lines = file.readlines()
+        file.close()
+        return lines
+    except FileNotFoundError:
+        print("Customer list does not exist. Creating a new file...")
+        return []
+    
+# Function to allow input from user and append it 
+
+def create():
+    customer = check()
+    fname = input("Please enter the customer\'s first name: ")
+    lname = input("Please enter the customer\'s last name: ")
+    phone = input("Please enter the customer\'s phone: ")
+    email = input("Please enter the customer\'s email: ")
+    entry = f"{fname}, {lname}, {phone}, {email}\n"
+    customer.append(entry)
+    save(customer)
+
+# Implement save function to write updates
+
+def save(output):
+    file = open("customer_list.txt", 'w')
+    for line in output:
+        file.write(line)
+    file.close()
+    print("File updated.")
+
+# Read function that searches for last names and displays it
+
+def read():
+    customer = check()
+    lname = input("Please enter the customer's last name to search: ")
+    found = False
+    for entry in customer:
+        if lname in entry:
+            print(entry.strip())
+            found = True
+    if not found:
+        print(f"No entry found for last name: {lname}")
+
+# Update function modifies an existing entry based on last name
+
+def update():
+    customer = check()
+    lname = input("Please enter the customer's last name to update: ")
+    found = False
+    for i, entry in enumerate(customer):
+        if lname in entry:
+            print(f"Updating entry for last name: {lname}")
+            fname = input("Please enter the updated first name: ")
+            phone = input("Plesae enter the updated phone: ")
+            email = input("Please enter the updated email: ")
+            customer[i] = f"{fname}, {lname}, {phone}, {email}\n"
+            found = True
+            break
+    if not found:
+        print(f"No entry found for last name: {lname}")
+
+# Delete function allows you to remove an entry based on the last name
+
+def delete():
+    customer = check()
+    lname = input("Please enter the customer's last name to delete: ")
+    found = False
+    for i, entry in enumerate(customer):
+        if lname in entry:
+            print(f"Deleting entry for last name: {lname}")
+            del customer[i]
+            found = True
+            break
+    if not found:
+        print(f"No entry found for last name: {lname}")
+    save(customer)
+
+# Main function calls the appropriate functions based on the user's selection:
+
+def main():
+    while True:
+        choice = main_menu()
+        if choice == 1:
+            create()
+        elif choice == 2:
+            read()
+        elif choice == 3:
+            update()
+        elif choice == 4:
+            delete()
+        elif choice == 5:
+            print("Exiting the program. Goodbye!")
+            break
+
+if __name__ == "__main__":
+    main()
+    

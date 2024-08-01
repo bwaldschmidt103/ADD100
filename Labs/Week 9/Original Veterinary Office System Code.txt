@@ -1,0 +1,143 @@
+"""
+1. Define a Pet Class:
+Create private properties: owner_first_name, owner_last_name, pet_id, pet_name, and pet_type.
+Set a default value for pet_type as "Dog".
+Implement getter and setter methods for all properties.
+Include a class variable vet_name set to the name of your veterinary office.
+Add a method display_pet_info to print all details of the pet and owner.
+
+2. Create Pet Objects:
+Instantiate at least three pet objects with different details.
+Show the use of setter methods for at least one pet object.
+
+3. Implement Property Existence Check:
+Write a function check_property that uses hasattr() to verify if a property exists in a pet object.
+
+4. Display Information:
+Use display_pet_info to print details for each pet.
+Show examples of check_property being used on various properties and pets.
+"""
+
+# Class definition
+class Pet:
+    # Class variable
+    veterinary_office = "Healing Paws"
+
+    # Initializer with private variables
+    def __init__(self, owner_first_name, owner_last_name, pet_id, pet_name, pet_type):
+        # Instance variables
+        self.__owner_first_name = owner_first_name
+        self.__owner_last_name = owner_last_name
+        self.__pet_id = pet_id
+        self.__pet_name = pet_name
+        self.__pet_type = pet_type(str("Dog"))
+
+    # Getter and Setter for properties
+    def get_owner_first_name(self):
+        return self.__owner_first_name
+    
+    def get_owner_last_name(self):
+        return self.__owner_last_name
+    
+    def get_pet_id(self):
+        return self.__pet_id
+    
+    def get_pet_name(self):
+        return self.__pet_name
+    
+    def get_pet_type(self):
+        return self.__pet_type
+    
+    def set_owner_first_name(self, value):
+        self.__owner_first_name = value
+
+    def set_owner_last_name(self, value):
+        self.__owner_last_name = value
+
+    def set_pet_id(self, value):
+        self.__pet_id = value
+
+    def set_pet_name(self, value):
+        self.__pet_name = value
+
+    def set_pet_type(self, value):
+        self.__pet_type = value
+
+    # Method to print pet and owner details
+    def print_pet_details(self):
+        print("Pet Details:", vars(self))
+
+    # Method to print basic info about the pet and owner
+    def print_info(self):
+        print(self.__owner_first_name + " " + self.__owner_last_name)
+        print(self.__pet_id)
+        print(self.__pet_name)
+        print(self.__pet_type)
+
+    # Creating Pet objects
+    class Objects:
+        def __init__(self, name, material, color, shape, squeak):
+            self.name = name
+            self.material = material
+            self.color = color
+            self.shape = shape
+            self.squeak = squeak
+
+    # Initializer with private variables
+    def __init__(self, Objects):
+        # Instance variables
+        self.__Objects = Objects
+
+    # Instiating three Pet objects
+    object1 = Objects("collar", ["cloth", "red", "circular", "no"])
+    object2 = Objects("ball", ["rubber", "yellow", "round", "yes"])
+    object3 = Objects("bed", ["cotton", "tan", "square", "no"])
+
+    def get_object1(self):
+        return self.__object1
+    
+    def get_object2(self):
+        return self.__object1
+    
+    def get_object3(self):
+        return self.__object1
+
+    def set_object1(self, value):
+        self.__object1 = value
+
+    def set_object2(self, value):
+        self.__object1 = value
+
+    def set_object3(self, value):
+        self.__object1 = value
+
+
+# Main function to demonstrate usage of the Pet class
+def main():
+    # Creating an instance of Pet
+    pet1 = Pet("Alan", "Watkins", "W32458234", "Floppy")
+    print("\n\n\n")
+    pet2 = Pet("Martha", "Bellview", "T324245", "Princess")
+    print("\n\n\n")
+    pet3 = Pet("Grace", "Tomkins", "J3252345", "Macy")
+    print("\n\n\n")
+    pet4 = Pet("Mark", "Wahlburg", "E34564564", "Doc")
+    print("\n\n\n")
+
+    # Printing out the pet information
+    print(pet1.get_pet_name())
+    print("\n\n\n")
+    print(pet2.get_pet_id())
+    print("\n\n\n")
+    print(pet3.get_pet_name())
+    print("\n\n\n")
+    print(pet4.get_pet_id())
+    print("\n\n\n")
+
+    # Implementing property existence check
+    pet5 = Pet("Bark", "More", "1888")
+    print(hasattr(Pet, "owner_first_name")) # True
+    print(hasattr(Pet, "owner_middle_name")) # False
+
+main()
+

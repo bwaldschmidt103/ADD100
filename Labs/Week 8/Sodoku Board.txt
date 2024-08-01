@@ -1,0 +1,90 @@
+Level of difficulty
+Hard
+
+Objectives
+improving the student's skills in operating with strings and lists;
+converting strings into lists.
+Scenario
+As you probably know, Sudoku is a number-placing puzzle played on a 9x9 board. The player has to fill the board in a very specific way:
+
+each row of the board must contain all digits from 0 to 9 (the order doesn't matter)
+each column of the board must contain all digits from 0 to 9 (again, the order doesn't matter)
+each of the nine 3x3 "tiles" (we will name them "sub-squares") of the table must contain all digits from 0 to 9.
+If you need more details, you can find them here.
+
+Your task is to write a program which:
+
+reads 9 rows of the Sudoku, each containing 9 digits (check carefully if the data entered are valid)
+outputs Yes if the Sudoku is valid, and No otherwise.
+Test your code using the data we've provided.
+
+-------------------------------------------------------------------------
+
+Test data
+Sample input:
+
+295743861
+431865927
+876192543
+387459216
+612387495
+549216738
+763524189
+928671354
+154938672
+Sample output:
+
+Yes
+
+
+Sample input:
+
+195743862
+431865927
+876192543
+387459216
+612387495
+549216738
+763524189
+928671354
+254938671
+Sample output:
+
+No
+
+-----------------------------------------------------------
+
+def is_valid_sudoku(board):
+    # Check rows
+    for row in board:
+        if len(set(row)) != 9:
+            return False
+    
+    # Check columns
+    for col in range(9):
+        if len(set(board[row][col] for row in range(9))) != 9:
+            return False
+    
+    # Check sub-squares
+    for i in range(0, 9, 3):
+        for j in range(0, 9, 3):
+            sub_square = [board[x][y] for x in range(i, i + 3) for y in range(j, j + 3)]
+            if len(set(sub_square)) != 9:
+                return False
+    
+    return True
+
+# Get input from user
+sudoku_board = []
+for _ in range(9):
+    row = input("Enter a row of Sudoku (9 digits): ")
+    if len(row) != 9 or not row.isdigit():
+        print("Invalid input. Please enter 9 digits.")
+        exit(1)
+    sudoku_board.append(list(map(int, row)))
+
+# Check if the Sudoku board is valid
+if is_valid_sudoku(sudoku_board):
+    print("Yes, the Sudoku board is valid.")
+else:
+    print("No, the Sudoku board is not valid.")

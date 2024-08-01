@@ -1,0 +1,86 @@
+Module 1.11.1.1, Module 1.11.1.2
+
+Objectives
+improving the student's skills in operating with strings;
+converting characters into ASCII code, and vice versa.
+Scenario
+You are already familiar with the Caesar cipher, and this is why we want you to improve the code we showed you recently.
+
+The original Caesar cipher shifts each character by one: a becomes b, z becomes a, and so on. Let's make it a bit harder, and allow the shifted value to come from the range 1..25 inclusive.
+
+Moreover, let the code preserve the letters' case (lower-case letters will remain lower-case) and all non-alphabetical characters should remain untouched.
+
+Your task is to write a program which:
+
+asks the user for one line of text to encrypt;
+asks the user for a shift value (an integer number from the range 1..25 - note: you should force the user to enter a valid shift value (don't give up and don't let bad data fool you!)
+prints out the encoded text.
+Test your code using the data we've provided.
+-----------------------------------------------------------
+Test data
+Sample input:
+
+abcxyzABCxyz 123
+2
+
+Sample output:
+
+cdezabCDEzab 123
+
+Sample input:
+
+The die is cast
+25
+
+Sample output:
+
+Sgd chd hr bzrs
+
+-----------------------------------------------------
+
+
+def caesar_cipher(text, shift):
+    encrypted_text = ""
+    for char in text:
+        if char.isalpha():
+            # Determine the case (upper or lower)
+            is_upper = char.isupper()
+            char = char.lower()
+            
+            # Convert char to ASCII code
+            ascii_code = ord(char)
+            
+            # Apply the shift
+            shifted_ascii_code = (ascii_code - ord('a') + shift) % 26 + ord('a')
+            
+            # Convert back to character
+            shifted_char = chr(shifted_ascii_code)
+            
+            # Restore the case
+            if is_upper:
+                shifted_char = shifted_char.upper()
+            
+            encrypted_text += shifted_char
+        else:
+            # Non-alphabetical characters remain untouched
+            encrypted_text += char
+    
+    return encrypted_text
+
+# Get input from user
+text = input("Enter a line of text to encrypt: ")
+while True:
+    try:
+        shift = int(input("Enter a shift value (1-25): "))
+        if 1 <= shift <= 25:
+            break
+        else:
+            print("Invalid shift value. Please enter a value between 1 and 25.")
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+# Encrypt the text
+encrypted_text = caesar_cipher(text, shift)
+
+# Print the encrypted text
+print(f"Encrypted text: {encrypted_text}")
